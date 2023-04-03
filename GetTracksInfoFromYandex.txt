@@ -1,0 +1,24 @@
+//let userName = 'drive.fpm.vasyuk';
+
+//window.open(`https://music.yandex.by/users/${userName}/tracks`,"_self");
+
+//window.scrollTo(0,Number.MAX_SAFE_INTEGER);
+
+var currentLastElement = $("div[data-id].d-track").last();
+
+var tracksCount = parseInt(currentLastElement.attr("data-id"));
+
+window.scrollTo(0,0);
+
+let visibleTracks = $("div[data-id].d-track");
+let visibleTracksCount = visibleTracks.length;
+let visibleTitles = $("a.d-track__title").map((i,e) => e.textContent);
+let visibleArtists = $("span.d-track__artists").map((i,e) => e.textContent);
+
+let tracksInfo = []
+
+for(let i=0; i < visibleTracksCount; i++) {
+  tracksInfo.push(`${visibleTitles[i]} +++ ${visibleArtists[i]}`);
+}
+
+currentLastElement.getClientRectBounds()
